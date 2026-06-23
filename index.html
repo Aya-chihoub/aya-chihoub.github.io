@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aya Chihoub — CV & Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:     #1a1a2e;
+      --paper:   #f7f5f0;
+      --mid:     #6b6b80;
+      --accent:  #7c6af7;
+      --accent2: #c084fc;
+      --tag-bg:  #ede9fe;
+      --tag-fg:  #5b21b6;
+      --card-bg: #ffffff;
+      --border:  #e4e0f5;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2.5rem;
+      background: rgba(247,245,240,0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 6rem 2.5rem 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      gap: 3rem;
+    }
+    .hero-text h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+    .hero-text h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-text p {
+      font-size: 1.05rem;
+      color: var(--mid);
+      max-width: 420px;
+      margin-bottom: 2rem;
+    }
+    .hero-badges {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;
+    }
+    .badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      background: var(--tag-bg);
+      color: var(--tag-fg);
+      letter-spacing: 0.04em;
+    }
+    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: #6355e0; }
+    .btn-ghost {
+      border: 1.5px solid var(--border);
+      color: var(--ink);
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Hero visual */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .neural-grid {
+      width: 320px; height: 320px;
+      position: relative;
+    }
+    .neural-grid svg { width: 100%; height: 100%; }
+
+    /* ── SECTIONS ── */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+    }
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin-bottom: 2.5rem;
+    }
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 2.5rem;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .project-card:hover {
+      box-shadow: 0 8px 30px rgba(124,106,247,0.12);
+      transform: translateY(-3px);
+    }
+    .project-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .project-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+    .project-card p {
+      font-size: 0.9rem;
+      color: var(--mid);
+      margin-bottom: 1.2rem;
+      line-height: 1.55;
+    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      background: var(--tag-bg);
+      color: var(--tag-fg);
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-group {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+    }
+    .skill-group h4 {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--mid);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .about-text p strong { color: var(--ink); }
+    .edu-item {
+      border-left: 2px solid var(--border);
+      padding-left: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .edu-item:last-child { margin-bottom: 0; }
+    .edu-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.25rem;
+    }
+    .edu-item h4 { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.2rem; }
+    .edu-item p { font-size: 0.85rem; color: var(--mid); }
+
+    /* ── CONTACT ── */
+    .contact-inner {
+      background: var(--ink);
+      border-radius: 20px;
+      padding: 4rem;
+      text-align: center;
+      color: #fff;
+    }
+    .contact-inner .section-label { color: var(--accent2); }
+    .contact-inner .section-title { color: #fff; margin-bottom: 1rem; }
+    .contact-inner p { color: rgba(255,255,255,0.6); margin-bottom: 2rem; font-size: 1rem; }
+    .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-light {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .btn-light:hover { background: var(--accent); border-color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--mid);
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; padding-top: 7rem; }
+      .hero-visual { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      section { padding: 3.5rem 1.5rem; }
+      .contact-inner { padding: 2.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-name">aya.chihoub</span>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-text">
+    <h1>I make<br/><em>data speak</em><br/>for itself.</h1>
+    <p>Master's student in Computer Vision & AI at Université Paris Cité. Looking for an alternance starting September 2026.</p>
+    <div class="hero-badges">
+      <span class="badge">Data Science</span>
+      <span class="badge">ML Engineering</span>
+      <span class="badge">Computer Vision</span>
+      <span class="badge">PyTorch</span>
+      <span class="badge">OpenCV</span>
+    </div>
+    <div class="hero-links">
+      <a href="#projects" class="btn btn-primary">See my work</a>
+      <a href="https://github.com/Aya-chihoub" target="_blank" class="btn btn-ghost">GitHub</a>
+      <a href="https://linkedin.com/in/aya-chihoub" target="_blank" class="btn btn-ghost">LinkedIn</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <!-- Animated neural network SVG -->
+    <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#7c6af7" stop-opacity="0.15"/>
+          <stop offset="100%" stop-color="#7c6af7" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <circle cx="160" cy="160" r="150" fill="url(#glow)"/>
+
+      <!-- Edges -->
+      <!-- Input to hidden -->
+      <line x1="60" y1="80"  x2="160" y2="80"  stroke="#c4bff5" stroke-width="1.2"/>
+      <line x1="60" y1="80"  x2="160" y2="130" stroke="#c4bff5" stroke-width="1.2"/>
+      <line x1="60" y1="80"  x2="160" y2="180" stroke="#c4bff5" stroke-width="1.2"/>
+      <line x1="60" y1="130" x2="160" y2="80"  stroke="#c4bff5" stroke-width="1.2"/>
+      <line x1="60" y1="130" x2="160" y2="130" stroke="#c4bff5" stroke-width="1.2"/>
+      <line x1="60" y1="130" x2="160" y2="180" stroke="#c4bff5" stroke-width="1.2"/>
+      <line x1="60" y1="180" x2="160" y2="80"  stroke="#c4bff5" stroke-width="1.2"/>
+      <line x1="60" y1="180" x2="160" y2="130" stroke="#c4bff5" stroke-width="1.2"/>
+      <line x1="60" y1="180" x2="160" y2="180" stroke="#c4bff5" stroke-width="1.2"/>
+      <line x1="60" y1="230" x2="160" y2="80"  stroke="#c4bff5" stroke-width="1.2"/>
+      <line x1="60" y1="230" x2="160" y2="130" stroke="#c4bff5" stroke-width="1.2"/>
+      <line x1="60" y1="230" x2="160" y2="180" stroke="#c4bff5" stroke-width="1.2"/>
+      <!-- Hidden to output -->
+      <line x1="160" y1="80"  x2="260" y2="105" stroke="#c4bff5" stroke-width="1.2"/>
+      <line x1="160" y1="80"  x2="260" y2="185" stroke="#c4bff5" stroke-width="1.2"/>
+      <line x1="160" y1="130" x2="260" y2="105" stroke="#c4bff5" stroke-width="1.2"/>
+      <line x1="160" y1="130" x2="260" y2="185" stroke="#c4bff5" stroke-width="1.2"/>
+      <line x1="160" y1="180" x2="260" y2="105" stroke="#c4bff5" stroke-width="1.2"/>
+      <line x1="160" y1="180" x2="260" y2="185" stroke="#c4bff5" stroke-width="1.2"/>
+
+      <!-- Animated signal -->
+      <circle r="3" fill="#7c6af7" opacity="0.9">
+        <animateMotion dur="2.2s" repeatCount="indefinite" begin="0s">
+          <mpath href="#path1"/>
+        </animateMotion>
+      </circle>
+      <circle r="3" fill="#c084fc" opacity="0.9">
+        <animateMotion dur="2.2s" repeatCount="indefinite" begin="0.7s">
+          <mpath href="#path2"/>
+        </animateMotion>
+      </circle>
+      <circle r="3" fill="#7c6af7" opacity="0.9">
+        <animateMotion dur="2.2s" repeatCount="indefinite" begin="1.4s">
+          <mpath href="#path3"/>
+        </animateMotion>
+      </circle>
+      <path id="path1" d="M60,130 L160,80 L260,105" fill="none"/>
+      <path id="path2" d="M60,80  L160,180 L260,185" fill="none"/>
+      <path id="path3" d="M60,230 L160,130 L260,105" fill="none"/>
+
+      <!-- Input nodes -->
+      <circle cx="60" cy="80"  r="10" fill="#fff" stroke="#7c6af7" stroke-width="2"/>
+      <circle cx="60" cy="130" r="10" fill="#fff" stroke="#7c6af7" stroke-width="2"/>
+      <circle cx="60" cy="180" r="10" fill="#fff" stroke="#7c6af7" stroke-width="2"/>
+      <circle cx="60" cy="230" r="10" fill="#fff" stroke="#7c6af7" stroke-width="2"/>
+      <!-- Hidden nodes -->
+      <circle cx="160" cy="80"  r="12" fill="#7c6af7"/>
+      <circle cx="160" cy="130" r="12" fill="#7c6af7"/>
+      <circle cx="160" cy="180" r="12" fill="#7c6af7"/>
+      <!-- Output nodes -->
+      <circle cx="260" cy="105" r="10" fill="#fff" stroke="#c084fc" stroke-width="2"/>
+      <circle cx="260" cy="185" r="10" fill="#fff" stroke="#c084fc" stroke-width="2"/>
+
+      <!-- Labels -->
+      <text x="60" y="258" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#9b8ff5">input</text>
+      <text x="160" y="210" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#9b8ff5">hidden</text>
+      <text x="260" y="213" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#9b8ff5">output</text>
+    </svg>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label">Work</p>
+  <h2 class="section-title">Projects</h2>
+  <div class="projects-grid">
+
+    <a class="project-card" href="https://github.com/Aya-chihoub/Data-Science-IR-Retrieval-Engine" target="_blank">
+      <div class="project-icon">🔍</div>
+      <h3>Information Retrieval Engine</h3>
+      <p>Built a full retrieval pipeline combining TF-IDF, BM25+, dense embeddings, and LightGBM LambdaRank reranking. Kaggle score ~0.54.</p>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">BM25+</span>
+        <span class="tag">Embeddings</span>
+        <span class="tag">LightGBM</span>
+        <span class="tag">NLP</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/Aya-chihoub/Age--prediction-using-deep-convolutional-neural-networks" target="_blank">
+      <div class="project-icon">🧠</div>
+      <h3>Author Age Prediction</h3>
+      <p>Multi-branch 1D CNN in PyTorch for stylometric author age prediction. ~41% document-level accuracy across 4 decade classes. CNRS/THALIM collaboration.</p>
+      <div class="project-tags">
+        <span class="tag">PyTorch</span>
+        <span class="tag">CNN</span>
+        <span class="tag">Stylometry</span>
+        <span class="tag">CNRS</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/Aya-chihoub/Euro-coin-detection-by-image-analysis-M1" target="_blank">
+      <div class="project-icon">🪙</div>
+      <h3>Euro Coin Detection</h3>
+      <p>Detection and classification system using image segmentation, feature extraction, KNN, and CNN/AlexNet approaches.</p>
+      <div class="project-tags">
+        <span class="tag">OpenCV</span>
+        <span class="tag">KNN</span>
+        <span class="tag">AlexNet</span>
+        <span class="tag">Computer Vision</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/Aya-chihoub/Coin-Classification-Neural-networks-for-computer-vision" target="_blank">
+      <div class="project-icon">🔬</div>
+      <h3>Coin Classification with Neural Networks</h3>
+      <p>Deep learning approach to coin classification, exploring modern CNN architectures for visual recognition tasks.</p>
+      <div class="project-tags">
+        <span class="tag">PyTorch</span>
+        <span class="tag">Deep Learning</span>
+        <span class="tag">Computer Vision</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/Aya-chihoub/ProjetM1Reconnaissance_des_Formes_2025" target="_blank">
+      <div class="project-icon">🔷</div>
+      <h3>Shape Recognition</h3>
+      <p>Implementation and comparison of 5 shape descriptors (E34, GFD, SA, F0, F2) on the BDshape dataset with a full classification pipeline.</p>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">Descriptors</span>
+        <span class="tag">Classification</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/Aya-chihoub/Argumentation-Systems-Solver" target="_blank">
+      <div class="project-icon">⚙️</div>
+      <h3>Argumentation Systems Solver</h3>
+      <p>Python solver for abstract argumentation frameworks — finding stable, preferred, and grounded extensions.</p>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Logic</span>
+        <span class="tag">AI</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/Aya-chihoub/Projet-Programmation-Distribuee-M1" target="_blank">
+      <div class="project-icon">🐳</div>
+      <h3>Online Bookstore — Microservices</h3>
+      <p>Distributed bookstore built with a microservices architecture: two independent REST services (book & order), orchestrated with Kubernetes and exposed via an NGINX Ingress Gateway.</p>
+      <div class="project-tags">
+        <span class="tag">Node.js</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">RBAC</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://eventhub-ten-blond.vercel.app" target="_blank">
+      <div class="project-icon">🗓️</div>
+      <h3>EventHub — Live ↗</h3>
+      <p>Full-stack event and participant management app with two independent backends (Django REST Framework + Node.js/Express) and a React/Vite frontend. Deployed on Vercel and Render.</p>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">Django</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">JWT</span>
+        <span class="tag">Deployed</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label">Stack</p>
+  <h2 class="section-title">Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h4>Languages</h4>
+      <div class="skill-list">
+        <span class="badge">Python</span>
+        <span class="badge">C++</span>
+        <span class="badge">Java</span>
+        <span class="badge">JavaScript</span>
+        <span class="badge">C</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>ML / DL</h4>
+      <div class="skill-list">
+        <span class="badge">PyTorch</span>
+        <span class="badge">scikit-learn</span>
+        <span class="badge">LightGBM</span>
+        <span class="badge">CNN</span>
+        <span class="badge">Transformers</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Computer Vision</h4>
+      <div class="skill-list">
+        <span class="badge">OpenCV</span>
+        <span class="badge">AlexNet</span>
+        <span class="badge">ResNet</span>
+        <span class="badge">Image Segmentation</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Data</h4>
+      <div class="skill-list">
+        <span class="badge">NumPy</span>
+        <span class="badge">pandas</span>
+        <span class="badge">PySpark</span>
+        <span class="badge">SQL</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Tools</h4>
+      <div class="skill-list">
+        <span class="badge">Git</span>
+        <span class="badge">Jupyter</span>
+        <span class="badge">React.js</span>
+        <span class="badge">Node.js</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Languages (human)</h4>
+      <div class="skill-list">
+        <span class="badge">Arabic — C2</span>
+        <span class="badge">English — C1</span>
+        <span class="badge">French — C1</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">Background</p>
+  <h2 class="section-title">About me</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a Master's student in <strong>Computer Vision and AI</strong> at Université Paris Cité, currently looking for an alternance (work-study) starting September 2026 in Data Science, ML Engineering, or Computer Vision.</p>
+      <p>My work spans image analysis, deep learning, and information retrieval — I like problems where there's something real to build and something genuinely hard to figure out.</p>
+      <p>Before Paris, I completed two degrees in Algeria, including a Master's in computer science. I also worked as a <strong>freelance developer</strong> building front-end and back-end web projects.</p>
+      <p>Outside of code: I follow AI research closely, love a good series, and care deeply about animals.</p>
+    </div>
+    <div class="about-edu">
+      <div class="edu-item">
+        <p class="edu-year">2025 — 2027</p>
+        <h4>Master — Vision et Machine Intelligente</h4>
+        <p>Université Paris Cité</p>
+      </div>
+      <div class="edu-item">
+        <p class="edu-year">2021 — 2023</p>
+        <h4>Master — Sciences et Technologies de l'Information</h4>
+        <p>Université Constantine 2 Abdelhamid Mehri</p>
+      </div>
+      <div class="edu-item">
+        <p class="edu-year">2018 — 2021</p>
+        <h4>Licence en Sciences de l'Informatique</h4>
+        <p>Université Constantine 2 Abdelhamid Mehri</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <p class="section-label">Get in touch</p>
+    <h2 class="section-title">Let's work together</h2>
+    <p>I'm open to alternance opportunities in the Paris area starting September 2026.<br/>Feel free to reach out or just say hello.</p>
+    <div class="contact-links">
+      <a href="mailto:chihoubaya@gmail.com" class="btn btn-light">chihoubaya@gmail.com</a>
+      <a href="https://linkedin.com/in/aya-chihoub" target="_blank" class="btn btn-light">LinkedIn</a>
+      <a href="https://github.com/Aya-chihoub" target="_blank" class="btn btn-light">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Aya Chihoub · Paris, France · 2026</p>
+</footer>
+
+</body>
+</html>
