@@ -1,0 +1,26 @@
+[
+  {
+    "id": "information-retrieval",
+    "title": "Information Retrieval Engine",
+    "text": "Aya built an information retrieval engine over more than 216,000 documents, comparing TF-IDF, BM25+ and SentenceTransformers. The SentenceTransformers approach achieved Recall@10 of 0.4456, Precision@10 of 0.2703 and MRR of 0.5658.",
+    "url": "https://github.com/Aya-chihoub/Data-Science-IR-Retrieval-Engine"
+  },
+  {
+    "id": "age-prediction",
+    "title": "Age Prediction with CNN",
+    "text": "Aya worked on predicting age from images using deep convolutional neural networks.",
+    "url": "https://github.com/Aya-chihoub/Age--prediction-using-deep-convolutional-neural-networks"
+  },
+  {
+    "id": "education",
+    "title": "Education",
+    "text": "Aya studies Vision et Machine Intelligente (Computer Vision and AI) at Université Paris Cité, in the 2025–2027 Master's program. She is seeking a final-year internship in AI/ML Engineering, Data Science or Computer Vision in 2027.",
+    "url": "https://aya-chihoub.github.io/"
+  },
+  {
+    "id": "freelance",
+    "title": "Freelance Web Development",
+    "text": "Aya developed KhademTech, a job-matching application with React, Node.js REST APIs and MySQL. Matching uses skills, location and experience, with skills weighted more heavily.",
+    "url": "https://aya-chihoub.github.io/"
+  }
+]
