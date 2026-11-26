@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aya Chihoub — CV & Portfolio</title>
+  <title>Aya Chihoub — AI, Machine Learning &amp; Data Science</title>
+  <meta name="description" content="Aya Chihoub, M2 Computer Science student at Université Paris Cité. Portfolio of applied AI, data science, NLP and computer vision projects. Seeking a final-year internship in 2027." />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -286,6 +287,44 @@
       section { padding: 3.5rem 1.5rem; }
       .contact-inner { padding: 2.5rem 1.5rem; }
     }
+  
+    section { scroll-margin-top: 5rem; }
+    .hero { min-height: 85vh; }
+    .hero-text .hero-kicker { font-family: 'DM Mono', monospace; color: var(--accent); font-size: .78rem; letter-spacing: .08em; margin-bottom: 1rem; }
+    .hero-text p { max-width: 510px; margin-bottom: 1.1rem; }
+    .hero-text .availability { color: var(--ink); font-size: .92rem; font-weight: 500; margin-bottom: 1.5rem; }
+    .section-intro { max-width: 680px; color: var(--mid); margin: -1.5rem 0 1.5rem; }
+    .project-filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .6rem; }
+    .project-filters[hidden], .project-card[hidden] { display: none; }
+    .filter-btn { background: var(--card-bg); color: var(--ink); border: 1px solid var(--border); border-radius: 999px; padding: .55rem .9rem; font: inherit; font-size: .8rem; cursor: pointer; }
+    .filter-btn[aria-pressed="true"] { background: var(--tag-bg); color: var(--tag-fg); border-color: var(--accent); }
+    .project-count { color: var(--mid); font-size: .82rem; margin-bottom: 1.2rem; }
+    .project-card { display: flex; flex-direction: column; }
+    .project-card .project-type, .project-type { font-family: 'DM Mono', monospace; font-size: .7rem; color: var(--tag-fg); margin-bottom: .55rem; }
+    .project-card .project-result { font-size: .82rem; font-weight: 500; color: var(--ink); border-left: 2px solid var(--accent); padding-left: .65rem; margin-bottom: 1rem; }
+    .project-card .project-tags { margin-top: auto; }
+    .project-link { margin-top: 1rem; color: var(--tag-fg); font-size: .78rem; font-weight: 500; }
+    .more-projects { margin-top: 1.5rem; }
+    .more-projects a { color: var(--tag-fg); }
+    .research-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; }
+    .research-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin-bottom: .6rem; }
+    .research-card p:not(.project-type) { max-width: 760px; color: var(--mid); margin-bottom: 1rem; }
+    .research-card .research-note { margin-top: 1rem; margin-bottom: 0; font-size: .8rem; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--tag-fg); outline-offset: 4px; }
+    .projects-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+    .skills-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+    @media (max-width: 768px) {
+      nav { position: static; flex-wrap: wrap; gap: .6rem; }
+      .nav-links { flex-wrap: wrap; gap: .6rem 1rem; }
+      .hero { min-height: auto; padding: 3rem 1.5rem; }
+      section { scroll-margin-top: 1rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+      .hero-visual { display: none; }
+      .hero { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -295,8 +334,10 @@
   <span class="nav-name">aya.chihoub</span>
   <ul class="nav-links">
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#research">Research</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -304,19 +345,21 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-text">
+    <p class="hero-kicker">AYA CHIHOUB · PARIS, FRANCE</p>
     <h1>I make<br/><em>data speak</em><br/>for itself.</h1>
-    <p>Master's student in Computer Vision & AI at Université Paris Cité, seeking a final-year internship in AI/ML Engineering, Data Science, or Computer Vision starting in 2027.</p>
+    <p>Second-year Master's student in Computer Science (Vision et Machine Intelligente) at Université Paris Cité. I work on applied AI, machine learning, computer vision, NLP and data analytics.</p>
+    <p class="availability">Seeking a 4–6 month final-year internship in Île-de-France in 2027.</p>
     <div class="hero-badges">
       <span class="badge">Data Science</span>
       <span class="badge">ML Engineering</span>
       <span class="badge">Computer Vision</span>
-      <span class="badge">PyTorch</span>
-      <span class="badge">OpenCV</span>
+      <span class="badge">NLP &amp; GenAI</span>
+      <span class="badge">Data Analytics</span>
     </div>
     <div class="hero-links">
       <a href="#projects" class="btn btn-primary">See my work</a>
-      <a href="https://github.com/Aya-chihoub" target="_blank" class="btn btn-ghost">GitHub</a>
-      <a href="https://www.linkedin.com/in/aya-chihoub-aaa5163b0/" target="_blank" class="btn btn-ghost">LinkedIn</a>
+      <a href="https://github.com/Aya-chihoub" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GitHub</a>
+      <a href="https://www.linkedin.com/in/aya-chihoub-aaa5163b0/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">LinkedIn</a>
     </div>
   </div>
   <div class="hero-visual">
@@ -397,124 +440,170 @@
 
 <!-- PROJECTS -->
 <section id="projects">
-  <p class="section-label">Work</p>
+  <p class="section-label">Selected work · 2025–2026</p>
   <h2 class="section-title">Projects</h2>
-  <div class="projects-grid">
-
-    <a class="project-card" href="https://github.com/Aya-chihoub/Data-Science-IR-Retrieval-Engine" target="_blank">
-      <div class="project-icon">🔍</div>
-      <h3>Information Retrieval Engine</h3>
-      <p>Built a full retrieval pipeline combining TF-IDF, BM25+, dense embeddings, and LightGBM LambdaRank reranking. Kaggle score ~0.54.</p>
-      <div class="project-tags">
-        <span class="tag">Python</span>
-        <span class="tag">BM25+</span>
-        <span class="tag">Embeddings</span>
-        <span class="tag">LightGBM</span>
-        <span class="tag">NLP</span>
-      </div>
-    </a>
-
-    <a class="project-card" href="https://github.com/Aya-chihoub/Age--prediction-using-deep-convolutional-neural-networks" target="_blank">
-      <div class="project-icon">🧠</div>
-      <h3>Author Age Prediction</h3>
-      <p>Multi-branch 1D CNN in PyTorch for stylometric author age prediction. ~41% document-level accuracy across 4 decade classes. CNRS/THALIM collaboration.</p>
-      <div class="project-tags">
-        <span class="tag">PyTorch</span>
-        <span class="tag">CNN</span>
-        <span class="tag">Stylometry</span>
-        <span class="tag">CNRS</span>
-      </div>
-    </a>
-
-    <a class="project-card" href="https://github.com/Aya-chihoub/Euro-coin-detection-by-image-analysis-M1" target="_blank">
-      <div class="project-icon">🪙</div>
-      <h3>Euro Coin Detection</h3>
-      <p>Detection and classification system using image segmentation, feature extraction, and KNN.</p>
-      <div class="project-tags">
-        <span class="tag">OpenCV</span>
-        <span class="tag">KNN</span>
-        <span class="tag">Computer Vision</span>
-      </div>
-    </a>
-
-    <a class="project-card" href="https://github.com/Aya-chihoub/Coin-Classification-Neural-networks-for-computer-vision" target="_blank">
-      <div class="project-icon">🔬</div>
-      <h3>Coin Classification with Neural Networks</h3>
-      <p>Deep learning approach to coin classification, exploring modern CNN architectures for visual recognition tasks.</p>
-      <div class="project-tags">
-        <span class="tag">PyTorch</span>
-        <span class="tag">Deep Learning</span>
-        <span class="tag">Computer Vision</span>
-      </div>
-    </a>
-
-    <a class="project-card" href="https://github.com/Aya-chihoub/ProjetM1Reconnaissance_des_Formes_2025" target="_blank">
-      <div class="project-icon">🔷</div>
-      <h3>Shape Recognition</h3>
-      <p>Implementation and comparison of 5 shape descriptors (E34, GFD, SA, F0, F2) on the BDshape dataset with a full classification pipeline.</p>
-      <div class="project-tags">
-        <span class="tag">Python</span>
-        <span class="tag">NumPy</span>
-        <span class="tag">Descriptors</span>
-        <span class="tag">Classification</span>
-      </div>
-    </a>
-
-    <a class="project-card" href="https://github.com/Aya-chihoub/Entity-Resolution-Pipeline" target="_blank">
-      <div class="project-icon">🔗</div>
-      <h3>Entity Resolution Pipeline</h3>
-      <p>End-to-end Big Data pipeline for entity resolution across 6 datasets. Witness-first candidate generation, multi-view matching (Jaccard, TF-IDF, SBERT) and connected components clustering. F1 up to 0.953 on DBLP-ACM.</p>
-      <div class="project-tags">
-        <span class="tag">Python</span>
-        <span class="tag">SBERT</span>
-        <span class="tag">Big Data</span>
-        <span class="tag">NLP</span>
-        <span class="tag">Clustering</span>
-      </div>
-    </a>
-
-    <a class="project-card" href="https://github.com/Aya-chihoub/Argumentation-Systems-Solver" target="_blank">
-      <div class="project-icon">⚙️</div>
-      <h3>Argumentation Systems Solver</h3>
-      <p>Python solver for abstract argumentation frameworks — finding stable, preferred, and grounded extensions.</p>
-      <div class="project-tags">
-        <span class="tag">Python</span>
-        <span class="tag">Logic</span>
-        <span class="tag">AI</span>
-      </div>
-    </a>
-
-    <a class="project-card" href="https://github.com/Aya-chihoub/Projet-Programmation-Distribuee-M1" target="_blank">
-      <div class="project-icon">🐳</div>
-      <h3>Online Bookstore — Microservices</h3>
-      <p>Distributed bookstore built with a microservices architecture: two independent REST services (book & order), orchestrated with Kubernetes and exposed via an NGINX Ingress Gateway.</p>
-      <div class="project-tags">
-        <span class="tag">Node.js</span>
-        <span class="tag">PostgreSQL</span>
-        <span class="tag">Docker</span>
-        <span class="tag">Kubernetes</span>
-        <span class="tag">RBAC</span>
-      </div>
-    </a>
-
-    <a class="project-card" href="https://eventhub-ten-blond.vercel.app" target="_blank">
-      <div class="project-icon">🗓️</div>
-      <h3>EventHub — Live ↗</h3>
-      <p>Full-stack event and participant management app with two independent backends (Django REST Framework + Node.js/Express) and a React/Vite frontend. Deployed on Vercel and Render.</p>
-      <div class="project-tags">
-        <span class="tag">React</span>
-        <span class="tag">Django</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">JWT</span>
-        <span class="tag">Deployed</span>
-      </div>
-    </a>
-
+  <p class="section-intro">Academic research, experiments, data pipelines and software projects. Explore by area or open the repositories for code, methods and results.</p>
+  <div class="project-filters" aria-label="Filter projects" hidden>
+    <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All</button>
+    <button type="button" class="filter-btn" data-filter="ml" aria-pressed="false">Machine Learning</button>
+    <button type="button" class="filter-btn" data-filter="vision" aria-pressed="false">Computer Vision</button>
+    <button type="button" class="filter-btn" data-filter="nlp" aria-pressed="false">NLP &amp; GenAI</button>
+    <button type="button" class="filter-btn" data-filter="data" aria-pressed="false">Data Science</button>
+    <button type="button" class="filter-btn" data-filter="software" aria-pressed="false">Software Engineering</button>
   </div>
+  <p class="project-count" aria-live="polite"></p>
+  <div class="projects-grid">
+    <a class="project-card" data-category="data nlp" href="https://github.com/Aya-chihoub/Data-Science-IR-Retrieval-Engine" target="_blank" rel="noopener noreferrer">
+      <div class="project-icon" aria-hidden="true">🔍</div>
+      <p class="project-type">Data Science · Team project</p>
+      <h3>Information Retrieval Engine</h3>
+      <p>Hybrid search across 216,000+ documents using lexical and semantic retrieval, reciprocal rank fusion and learning-to-rank reranking.</p>
+      <p class="project-result">0.54292 best Kaggle score · 0.4827 MRR with reranking</p>
+      <div class="project-tags"><span class="tag">Python</span><span class="tag">BM25+</span><span class="tag">SentenceTransformers</span><span class="tag">LightGBM</span></div>
+      <span class="project-link">View repository ↗</span>
+    </a>
+    <a class="project-card" data-category="nlp ml" href="https://github.com/Aya-chihoub/LLM-Sentiment-Analysis" target="_blank" rel="noopener noreferrer">
+      <div class="project-icon" aria-hidden="true">💬</div>
+      <p class="project-type">M2 · Coursework</p>
+      <h3>LLM Sentiment Analysis</h3>
+      <p>Compared inference without task-specific training, linear probing, full and partial RoBERTa fine-tuning on Rotten Tomatoes movie reviews.</p>
+      <p class="project-result">86.87% test accuracy and macro F1 with full fine-tuning</p>
+      <div class="project-tags"><span class="tag">PyTorch</span><span class="tag">RoBERTa</span><span class="tag">Hugging Face</span><span class="tag">NLP</span></div>
+      <span class="project-link">View repository ↗</span>
+    </a>
+    <a class="project-card" data-category="vision nlp ml" href="https://github.com/Aya-chihoub/CLIP-Multimodal-Learning" target="_blank" rel="noopener noreferrer">
+      <div class="project-icon" aria-hidden="true">🖼️</div>
+      <p class="project-type">M2 · Coursework</p>
+      <h3>CLIP Multimodal Learning</h3>
+      <p>Evaluated image–text retrieval on ROCO medical images and zero-shot image classification on CIFAR-10 with three CLIP backbones.</p>
+      <p class="project-result">88.9% zero-shot accuracy on 1,000 CIFAR-10 images (ViT-B/32)</p>
+      <div class="project-tags"><span class="tag">CLIP</span><span class="tag">Vision–language models</span><span class="tag">PyTorch</span></div>
+      <span class="project-link">View repository ↗</span>
+    </a>
+    <a class="project-card" data-category="data nlp" href="https://github.com/Aya-chihoub/Entity-Resolution-Pipeline" target="_blank" rel="noopener noreferrer">
+      <div class="project-icon" aria-hidden="true">🔗</div>
+      <p class="project-type">Data Science · Team project</p>
+      <h3>Entity Resolution Pipeline</h3>
+      <p>Multi-dataset record linkage pipeline combining candidate generation, semantic matching and connected-components clustering.</p>
+      <p class="project-result">0.953 F1 on DBLP–ACM</p>
+      <div class="project-tags"><span class="tag">Python</span><span class="tag">SBERT</span><span class="tag">Data integration</span><span class="tag">Clustering</span></div>
+      <span class="project-link">View repository ↗</span>
+    </a>
+    <a class="project-card" data-category="ml vision nlp" href="https://github.com/Aya-chihoub/GenAI-Catch-Em-All" target="_blank" rel="noopener noreferrer">
+      <div class="project-icon" aria-hidden="true">🎨</div>
+      <p class="project-type">M2 · Coursework</p>
+      <h3>GenAI: Catch 'Em All</h3>
+      <p>Trained and compared variational autoencoders and GANs for Pokémon sprite generation across six configurations, evaluating FID, KID and reconstruction quality.</p>
+      <p class="project-result">40,597 images · 20 epochs per configuration</p>
+      <div class="project-tags"><span class="tag">PyTorch</span><span class="tag">VAE</span><span class="tag">GAN</span><span class="tag">Generative AI</span></div>
+      <span class="project-link">View repository ↗</span>
+    </a>
+    <a class="project-card" data-category="ml vision" href="https://github.com/Aya-chihoub/Knowledge-Distillation-VMI" target="_blank" rel="noopener noreferrer">
+      <div class="project-icon" aria-hidden="true">🧠</div>
+      <p class="project-type">M2 · Coursework</p>
+      <h3>Knowledge Distillation</h3>
+      <p>Compared ResNet50 teachers and ResNet18 students, testing logit and feature-map distillation, model size and inference efficiency on CIFAR-10.</p>
+      <p class="project-result">94.41% vs 92.98% test accuracy for pretrained student with vs without KL distillation (2-epoch experiment)</p>
+      <div class="project-tags"><span class="tag">PyTorch</span><span class="tag">ResNet</span><span class="tag">Model compression</span></div>
+      <span class="project-link">View repository ↗</span>
+    </a>
+    <a class="project-card" data-category="vision ml" href="https://github.com/Aya-chihoub/Euro-coin-detection-by-image-analysis-M1" target="_blank" rel="noopener noreferrer">
+      <div class="project-icon" aria-hidden="true">🪙</div>
+      <p class="project-type">M1 · Coursework</p>
+      <h3>Euro Coin Detection</h3>
+      <p>Combined Hough circles, watershed, contours, color features and KNN to detect coins and estimate monetary value.</p>
+      <p class="project-result">97.48% detection precision · 84.01% recall on 106 images</p>
+      <div class="project-tags"><span class="tag">OpenCV</span><span class="tag">KNN</span><span class="tag">Image processing</span></div>
+      <span class="project-link">View repository ↗</span>
+    </a>
+    <a class="project-card" data-category="vision ml" href="https://github.com/Aya-chihoub/Medical-Image-Segmentation-VMI" target="_blank" rel="noopener noreferrer">
+      <div class="project-icon" aria-hidden="true">🔬</div>
+      <p class="project-type">M2 · Coursework</p>
+      <h3>Medical Image Segmentation</h3>
+      <p>Explored thresholding, active contours, Frangi filtering and U-Net on brain MRI, cardiac MRI and retinal images. Compared Dice scores and limitations of small datasets.</p>
+      <p class="project-result">Exploratory experiments; not a clinical benchmark</p>
+      <div class="project-tags"><span class="tag">PyTorch</span><span class="tag">MONAI</span><span class="tag">U-Net</span><span class="tag">MRI</span></div>
+      <span class="project-link">View repository ↗</span>
+    </a>
+    <a class="project-card" data-category="ml vision" href="https://github.com/Aya-chihoub/tp-self-supervised" target="_blank" rel="noopener noreferrer">
+      <div class="project-icon" aria-hidden="true">🧩</div>
+      <p class="project-type">M2 · Coursework</p>
+      <h3>Self-Supervised Learning</h3>
+      <p>Compared context encoders, rotation prediction, SimCLR and relative patch position prediction on CIFAR-10 and CIFAR-100 using course-provided code.</p>
+      <p class="project-result">Eight training runs</p>
+      <div class="project-tags"><span class="tag">PyTorch</span><span class="tag">SimCLR</span><span class="tag">Representation learning</span></div>
+      <span class="project-link">View repository ↗</span>
+    </a>
+    <a class="project-card" data-category="nlp ml" href="https://github.com/Aya-chihoub/Age--prediction-using-deep-convolutional-neural-networks" target="_blank" rel="noopener noreferrer">
+      <div class="project-icon" aria-hidden="true">📚</div>
+      <p class="project-type">M1 · Research coursework</p>
+      <h3>Author Age Prediction</h3>
+      <p>Developed a multi-branch 1D CNN to classify French literary authors into four age brackets from handcrafted stylometric features.</p>
+      <p class="project-result">Document-level prediction with chunk aggregation</p>
+      <div class="project-tags"><span class="tag">PyTorch</span><span class="tag">CNN</span><span class="tag">Stylometry</span></div>
+      <span class="project-link">View repository ↗</span>
+    </a>
+    <a class="project-card" data-category="ml vision" href="https://github.com/Aya-chihoub/Coin-Classification-Neural-networks-for-computer-vision" target="_blank" rel="noopener noreferrer">
+      <div class="project-icon" aria-hidden="true">🔬</div>
+      <p class="project-type">M1 · Coursework</p>
+      <h3>Coin Classification with Neural Networks</h3>
+      <p>Explored CNN architectures for visual recognition and classification of coins.</p>
+      
+      <div class="project-tags"><span class="tag">PyTorch</span><span class="tag">Deep learning</span></div>
+      <span class="project-link">View repository ↗</span>
+    </a>
+    <a class="project-card" data-category="vision ml" href="https://github.com/Aya-chihoub/ProjetM1Reconnaissance_des_Formes_2025" target="_blank" rel="noopener noreferrer">
+      <div class="project-icon" aria-hidden="true">🔷</div>
+      <p class="project-type">M1 · Coursework</p>
+      <h3>Shape Recognition</h3>
+      <p>Implemented and compared five shape descriptors (E34, GFD, SA, F0, F2) on the BDshape dataset.</p>
+      
+      <div class="project-tags"><span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Classification</span></div>
+      <span class="project-link">View repository ↗</span>
+    </a>
+    <a class="project-card" data-category="ml" href="https://github.com/Aya-chihoub/Argumentation-Systems-Solver" target="_blank" rel="noopener noreferrer">
+      <div class="project-icon" aria-hidden="true">⚙️</div>
+      <p class="project-type">M1 · Coursework</p>
+      <h3>Argumentation Systems Solver</h3>
+      <p>Python solver for abstract argumentation frameworks, finding stable, preferred and grounded extensions.</p>
+      
+      <div class="project-tags"><span class="tag">Python</span><span class="tag">Logic</span><span class="tag">AI</span></div>
+      <span class="project-link">View repository ↗</span>
+    </a>
+    <a class="project-card" data-category="software" href="https://github.com/Aya-chihoub/Projet-Programmation-Distribuee-M1" target="_blank" rel="noopener noreferrer">
+      <div class="project-icon" aria-hidden="true">🐳</div>
+      <p class="project-type">M1 · Coursework</p>
+      <h3>Online Bookstore — Microservices</h3>
+      <p>Distributed bookstore with independent REST services for books and orders, orchestrated with Kubernetes and exposed via NGINX Ingress.</p>
+      
+      <div class="project-tags"><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Kubernetes</span></div>
+      <span class="project-link">View repository ↗</span>
+    </a>
+    <a class="project-card" data-category="software" href="https://github.com/Aya-chihoub/EVENTHUB" target="_blank" rel="noopener noreferrer">
+      <div class="project-icon" aria-hidden="true">🗓️</div>
+      <p class="project-type">Full-stack project</p>
+      <h3>EventHub</h3>
+      <p>Event and participant management application with Django REST Framework, Node.js/Express and a React/Vite frontend.</p>
+      
+      <div class="project-tags"><span class="tag">React</span><span class="tag">Django</span><span class="tag">Node.js</span><span class="tag">JWT</span></div>
+      <span class="project-link">View repository ↗</span>
+    </a>
+  </div>
+  <p class="more-projects"><a href="https://github.com/Aya-chihoub?tab=repositories" target="_blank" rel="noopener noreferrer">Explore all repositories on GitHub ↗</a></p>
 </section>
-
 <hr class="divider"/>
-
+<section id="research">
+  <p class="section-label">Current research · M2</p>
+  <h2 class="section-title">Test-Time Training</h2>
+  <article class="research-card">
+    <p class="project-type">Ongoing academic research · 2026–2027</p>
+    <h3>Adapting vision models under distribution shift</h3>
+    <p>My current research explores how image classifiers can adapt to changes in test data without using target labels. I am implementing rotation-based Test-Time Training with a shared ResNet encoder and comparing standard inference with test-time adaptation on clean and corrupted images.</p>
+    <div class="project-tags"><span class="tag">PyTorch</span><span class="tag">ResNet</span><span class="tag">Self-supervised learning</span><span class="tag">Domain shift</span><span class="tag">CIFAR-10-C</span></div>
+    <p class="research-note">Experiments in progress; results and code are not yet published.</p>
+  </article>
+</section>
+<hr class="divider"/>
 <!-- SKILLS -->
 <section id="skills">
   <p class="section-label">Stack</p>
@@ -556,15 +645,30 @@
         <span class="badge">pandas</span>
         <span class="badge">PySpark</span>
         <span class="badge">SQL</span>
+        <span class="badge">Power BI (basic experience)</span>
       </div>
     </div>
     <div class="skill-group">
-      <h4>Tools</h4>
+      <h4>NLP &amp; Generative AI</h4>
+      <div class="skill-list">
+        <span class="badge">Hugging Face Transformers</span>
+        <span class="badge">SentenceTransformers</span>
+        <span class="badge">CLIP</span>
+        <span class="badge">VAE</span>
+        <span class="badge">GAN</span>
+        <span class="badge">Semantic Search</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Tools &amp; Development</h4>
       <div class="skill-list">
         <span class="badge">Git</span>
         <span class="badge">Jupyter</span>
         <span class="badge">React.js</span>
         <span class="badge">Node.js</span>
+        <span class="badge">Docker</span>
+        <span class="badge">Kubernetes</span>
+        <span class="badge">Kaggle</span>
       </div>
     </div>
     <div class="skill-group">
@@ -586,8 +690,8 @@
   <h2 class="section-title">About me</h2>
   <div class="about-grid">
     <div class="about-text">
-      <p>I'm a Master's student in <strong>Computer Vision and AI</strong> at Université Paris Cité, currently looking for a final-year internship starting in 2027 in AI/ML Engineering, Data Science, or Computer Vision.</p>
-      <p>My work spans image analysis, deep learning, and information retrieval — I like problems where there's something real to build and something genuinely hard to figure out.</p>
+      <p>I'm a second-year Master's student in <strong>Vision et Machine Intelligente</strong> at Université Paris Cité. I'm looking for a final-year internship in applied AI, ML engineering, data science, or computer vision in 2027.</p>
+      <p>My work spans image analysis, deep learning, information retrieval and data analytics — I like problems where there's something real to build and something genuinely hard to figure out.</p>
       <p>Before Paris, I completed two degrees in Algeria, including a Master's in computer science. I also worked as a <strong>freelance developer</strong> building front-end and back-end web projects.</p>
       <p>Outside of code: I follow AI research closely, love a good series, and care deeply about animals.</p>
     </div>
@@ -611,16 +715,31 @@
   </div>
 </section>
 
+<hr class="divider"/>
+<section id="experience">
+  <p class="section-label">Practical experience &amp; learning</p>
+  <h2 class="section-title">Experience &amp; certifications</h2>
+  <div class="about-grid">
+    <div>
+      <div class="edu-item"><h4>Data Analyst Internship</h4><p>Previous experience with data analysis, including occasional use of Power BI.</p></div>
+      <div class="edu-item"><h4>Freelance Web Developer</h4><p>Front-end and back-end web development. Experience building applications with React, Node.js and databases.</p></div>
+    </div>
+    <div>
+      <div class="edu-item"><p class="edu-year">2026</p><h4>Cybersecurity MOOC — ANSSI</h4><p>Cybersecurity training: discovery and intermediate levels.</p></div>
+      <div class="edu-item"><p class="edu-year">2026</p><h4>Atelier RGPD — CNIL</h4><p>Training in data protection and GDPR fundamentals.</p></div>
+    </div>
+  </div>
+</section>
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner">
     <p class="section-label">Get in touch</p>
     <h2 class="section-title">Let's work together</h2>
-    <p>I'm looking for a final-year internship in AI/ML Engineering, Data Science, or Computer Vision, preferably in the Paris area, starting in 2027.<br/>Feel free to reach out or just say hello.</p>
+    <p>I'm looking for a 4–6 month final-year internship in applied AI, ML engineering, data science, data analytics or computer vision in Île-de-France in 2027.<br/>Feel free to reach out or just say hello.</p>
     <div class="contact-links">
       <a href="mailto:chihoubaya@gmail.com" class="btn btn-light">chihoubaya@gmail.com</a>
-      <a href="https://www.linkedin.com/in/aya-chihoub-aaa5163b0/" target="_blank" class="btn btn-light">LinkedIn</a>
-      <a href="https://github.com/Aya-chihoub" target="_blank" class="btn btn-light">GitHub</a>
+      <a href="https://www.linkedin.com/in/aya-chihoub-aaa5163b0/" target="_blank" rel="noopener noreferrer" class="btn btn-light">LinkedIn</a>
+      <a href="https://github.com/Aya-chihoub" target="_blank" rel="noopener noreferrer" class="btn btn-light">GitHub</a>
     </div>
   </div>
 </section>
@@ -629,5 +748,26 @@
   <p>Aya Chihoub · Paris, France · 2026</p>
 </footer>
 
+<script>
+  (() => {
+    const filters = document.querySelector('.project-filters');
+    const buttons = Array.from(filters.querySelectorAll('button'));
+    const cards = Array.from(document.querySelectorAll('.project-card'));
+    const count = document.querySelector('.project-count');
+    function applyFilter(category) {
+      let visible = 0;
+      cards.forEach(card => {
+        const show = category === 'all' || card.dataset.category.split(' ').includes(category);
+        card.hidden = !show;
+        if (show) visible++;
+      });
+      buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === category)));
+      count.textContent = visible + (visible === 1 ? ' project' : ' projects');
+    }
+    buttons.forEach(button => button.addEventListener('click', () => applyFilter(button.dataset.filter)));
+    filters.hidden = false;
+    applyFilter('all');
+  })();
+</script>
 </body>
 </html>
